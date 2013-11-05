@@ -1,6 +1,10 @@
-*.class
+#directories to ignore
+target/
+.idea/
+.clover/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+#files to ignore
+*.iml
+.DS_Store
+.project
+.classpath
