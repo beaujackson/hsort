@@ -2,6 +2,7 @@
 target/
 .idea/
 .clover/
+data/
 
 #files to ignore
 *.iml
