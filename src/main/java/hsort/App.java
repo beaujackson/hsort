@@ -12,10 +12,10 @@ import java.util.List;
  */
 public class App
 {
-    private static String testFile = "/var/tomcat/servers/hotelsearch/data/test.csv";
-    private static String trainingFile = "/var/tomcat/servers/hotelsearch/data/train.csv";
-    public static String sortedSearchFile = "/var/tomcat/servers/hotelsearch/data/sorted.csv";
-    public static String propIdFile = "/var/tomcat/servers/hotelsearch/data/prop_id.txt";
+    private static String testFile = "/Users/wjackson/projects/hsort/data/test.csv";
+    private static String trainingFile = "/Users/wjackson/projects/hsort/data/train.csv";
+    public static String sortedSearchFile = "/Users/wjackson/projects/hsort/data/sorted.csv";
+    public static String propIdFile = "/Users/wjackson/project/hsorts/data/prop_id.txt";
 
     private static HashMap<String, String> parseArgs(String[] args) {
         HashMap<String, String> parsed = new HashMap<>();
