@@ -7,16 +7,44 @@
 
 package hsort.rankers;
 
+import hsort.App;
 import hsort.analysis.SearchSet;
 import hsort.containers.CompetitorData;
 import hsort.containers.HotelDataContainer;
 import hsort.containers.NumericAnalysis;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class D2Ranker {
+    private static HashMap<Integer, Integer> propIds = new HashMap<>();
+
+    static {
+        File propIdFile = new File(App.propIdFile);
+        if (propIdFile.exists()) {
+
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(propIdFile));
+
+                String line;
+                while((line = reader.readLine()) != null) {
+                    if (line.trim().length() > 0) {
+                        String[] vals = line.split(",");
+                        propIds.put(Integer.parseInt(vals[0]), Integer.parseInt(vals[1]));
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
 
     private double travelMonthPriceFactor(SearchSet searchSet) {
 
@@ -202,6 +230,22 @@ public class D2Ranker {
             }
 
             hotel.d2_ranking += hotel.prop_starrating;
+
+            if (propIds.containsKey(hotel.prop_id)) {
+
+                Integer bookings = propIds.get(hotel.prop_id);
+
+                hotel.d2_ranking += bookings / 10;
+
+                if (bookings >= 6) {
+                    hotel.d2_ranking += .5;
+                }
+
+
+//                if (propIds.get(hotel.prop_id) >= 2) {
+//                    hotel.d2_ranking += .7;
+//                }
+            }
 
             //booking window
             hotel.d2_ranking += bookingWindowPriceFactor(searchSet.bookingWindow, hotel);

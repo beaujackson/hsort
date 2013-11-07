@@ -12,7 +12,6 @@ import hsort.analysis.CompareInteger;
 import hsort.analysis.SearchSet;
 import hsort.containers.HotelDataContainer;
 import hsort.containers.NumericAnalysis;
-import hsort.summarizers.CountSummarizer;
 import hsort.summarizers.SortSummarizer;
 
 import java.text.DecimalFormat;
@@ -39,10 +38,10 @@ public class SortAnalyzer {
 //            summarizers.add(SortSummarizer.getInstance("ClickOnly"));
 //        }
 
-        if (searchSet.numericAnalyses.get("loc2") == null) {
-            summarizers.add(SortSummarizer.getInstance("NoLoc2"));
-            CountSummarizer.getInstance("NoLoc2").total++;
-        }
+//        if (searchSet.numericAnalyses.get("loc2") == null) {
+//            summarizers.add(SortSummarizer.getInstance("NoLoc2"));
+//            CountSummarizer.getInstance("NoLoc2").total++;
+//        }
 
         //if (searchSet.saturdayStay)
             //getDetailedSummarizers(summarizers, searchSet);

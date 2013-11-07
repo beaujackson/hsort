@@ -8,7 +8,6 @@
 package hsort.analysis;
 
 import hsort.App;
-import hsort.analyzers.ClickAnalyzer;
 import hsort.analyzers.DistanceAnalyzer;
 import hsort.analyzers.FactorAnalyzer;
 import hsort.analyzers.Loc2Analyzer;
@@ -185,7 +184,7 @@ srch_query_affinity_score
         DistanceAnalyzer.analyze(this);
         //VisitorCountryAnalyzer.analyze(this);
         FactorAnalyzer.analyze(this);
-        ClickAnalyzer.analyze(this);
+        //ClickAnalyzer.analyze(this);
         Loc2Analyzer.analyze(this);
     }
 

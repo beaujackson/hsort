@@ -9,7 +9,6 @@ package hsort.analyzers;
 
 import hsort.analysis.SearchSet;
 import hsort.containers.HotelDataContainer;
-import hsort.summarizers.CountSummarizer;
 
 public class ClickAnalyzer {
 
@@ -25,30 +24,30 @@ public class ClickAnalyzer {
             }
         }
 
-        if (book == 0) {
-            if (clickOnly == 0) {
-                CountSummarizer.getInstance("No Click or Book").total++;
-            }
-
-            if (clickOnly == 1) {
-                CountSummarizer.getInstance("One click only").total++;
-            }
-
-            if (clickOnly > 1) {
-                CountSummarizer.getInstance("Multi-click no book").total++;
-            }
-        } else {
-            if (clickOnly == 0) {
-                CountSummarizer.getInstance("Book no click").total++;
-            }
-
-            if (clickOnly == 1) {
-                CountSummarizer.getInstance("Book plus one click").total++;
-            }
-
-            if (clickOnly > 1) {
-                CountSummarizer.getInstance("Book plus multi-click").total++;
-            }
-        }
+//        if (book == 0) {
+//            if (clickOnly == 0) {
+//                CountSummarizer.getInstance("No Click or Book").total++;
+//            }
+//
+//            if (clickOnly == 1) {
+//                CountSummarizer.getInstance("One click only").total++;
+//            }
+//
+//            if (clickOnly > 1) {
+//                CountSummarizer.getInstance("Multi-click no book").total++;
+//            }
+//        } else {
+//            if (clickOnly == 0) {
+//                CountSummarizer.getInstance("Book no click").total++;
+//            }
+//
+//            if (clickOnly == 1) {
+//                CountSummarizer.getInstance("Book plus one click").total++;
+//            }
+//
+//            if (clickOnly > 1) {
+//                CountSummarizer.getInstance("Book plus multi-click").total++;
+//            }
+//        }
     }
 }

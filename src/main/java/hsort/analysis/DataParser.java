@@ -66,6 +66,40 @@ public class DataParser {
         return sampleRows;
     }
 
+    public void generatePropIds() {
+
+        try {
+            BufferedReader reader = getReader();
+
+            HashMap<String, Integer> keyIndices = new HashMap<>();
+            String[] keys = reader.readLine().split(",");
+            for (int i=0; i<keys.length; i++) {
+                keyIndices.put(keys[i], i);
+            }
+
+            Integer bookingIndex = keyIndices.get("booking_bool");
+            Integer propIdIndex = keyIndices.get("prop_id");
+
+            String line = reader.readLine();
+
+            while (line != null) {
+                String[] vals = line.split(",");
+                String bookingVal = vals[bookingIndex];
+
+                if ("1".equals(bookingVal)) {
+                    Integer prop_id = Integer.parseInt(vals[propIdIndex]);
+                    CountSummarizer.getInstance(prop_id).total++;
+                }
+
+                line = reader.readLine();
+            }
+
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void train(long searchCount) {
 
         double halfPercent = searchCount * .005;
@@ -123,9 +157,6 @@ public class DataParser {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        System.out.println("- Count Summaries -----------------------------------------------------------------------");
-        CountSummarizer.printSummary();
 
 //        System.out.println("- Factor Summaries ----------------------------------------------------------------------");
 //        FactorSummarizer.printSummary(halfPercent);
